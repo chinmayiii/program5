@@ -11,7 +11,7 @@ pipeline{
 	stages{
 		stage('Checkout'){
 			steps{
-				git branch:main,ur:''
+				git branch:main,ur:'https://github.com/chinmayiii/program5.git'
 			}
 		}
 		stage('Build'){
