@@ -1,0 +1,14 @@
+- name: deploy to tomcat
+  hosts: web
+  become: yes
+  tasks: 
+    - name: copy warfiel to tomcat
+      copy: 
+        src: "/var/snaps/jenkins/5022/workspace/program5/target/program5.war"
+        dest: "/opt/tomacat/webapps/program5.war"
+        remote_src: no
+        
+    - name: restart tomcat
+      shell: |
+       /opt/tomcat/bin/shutdown.sh
+       /opt/tomcat/bin/startup.sh
